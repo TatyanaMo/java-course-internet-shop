@@ -3,23 +3,22 @@ package com.app.model;
 import java.math.BigDecimal;
 
 public class Book {
-    private  long bookId;
+    private  long id;
     private String bookName;
-    private String author;
-    private String category;
-    private String language;
-    private String type;
-    private BigDecimal price;
-    private String image;
+    private long authorId;
+    private long categoryId;
+    private long languageId;
+    private long typeId;
+    private String imageUrl;
     private int year;
-    private boolean availability;
+    private long reviewId;
 
-    public long getBookId() {
-        return bookId;
+    public long getId() {
+        return id;
     }
 
-    public void setBookId(long bookId) {
-        this.bookId = bookId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getBookName() {
@@ -30,52 +29,44 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public String getAuthor() {
-        return author;
+    public long getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthorId(long authorId) {
+        this.authorId = authorId;
     }
 
-    public String getCategory() {
-        return category;
+    public long getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getLanguage() {
-        return language;
+    public long getLanguageId() {
+        return languageId;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguageId(long languageId) {
+        this.languageId = languageId;
     }
 
-    public String getType() {
-        return type;
+    public long getTypeId() {
+        return typeId;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeId(long typeId) {
+        this.typeId = typeId;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getYear() {
@@ -86,11 +77,11 @@ public class Book {
         this.year = year;
     }
 
-    public boolean isAvailability() {
-        return availability;
+    public long getReviewId() {
+        return reviewId;
     }
 
-    public void setAvailability(boolean availability) {
-        this.availability = availability;
+    public void setReviewId(long reviewId) {
+        this.reviewId = reviewId;
     }
 }

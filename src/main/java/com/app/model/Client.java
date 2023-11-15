@@ -1,19 +1,19 @@
 package com.app.model;
 
 public class Client {
-    private long clientId;
+    private long id;
     private String clientName;
     private String clientSurname;
     private String email;
     private String phone;
     private String shippingAddress;
 
-    public long getClientId() {
-        return clientId;
+    public long getId() {
+        return id;
     }
 
-    public void setClientId(long clientId) {
-        this.clientId = clientId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getClientName() {

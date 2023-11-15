@@ -1,30 +1,21 @@
 package com.app.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Order {
 
-    private long orderId;
-    private long bookId;
+    private long id;
     private long clientId;
-    private int booksQuantity;
-    private BigDecimal orderCost;
-    private String orderStatus;
+    private BigDecimal totalPrice;
+    private long orderStatusId;
 
-    public long getOrderId() {
-        return orderId;
+    public long getId() {
+        return id;
     }
 
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
-    }
-
-    public long getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(long bookId) {
-        this.bookId = bookId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getClientId() {
@@ -35,27 +26,19 @@ public class Order {
         this.clientId = clientId;
     }
 
-    public int getBooksQuantity() {
-        return booksQuantity;
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setBooksQuantity(int booksQuantity) {
-        this.booksQuantity = booksQuantity;
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public BigDecimal getOrderCost() {
-        return orderCost;
+    public long getOrderStatusId() {
+        return orderStatusId;
     }
 
-    public void setOrderCost(BigDecimal orderCost) {
-        this.orderCost = orderCost;
-    }
-
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setOrderStatusId(long orderStatusId) {
+        this.orderStatusId = orderStatusId;
     }
 }
