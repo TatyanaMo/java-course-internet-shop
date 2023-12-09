@@ -2,9 +2,10 @@ package com.app.model;
 
 public class Client {
     private long id;
-    private String clientName;
-    private String clientSurname;
+    private String name;
+    private String surname;
     private String email;
+    private String password;
     private String phone;
     private String shippingAddress;
 
@@ -16,20 +17,20 @@ public class Client {
         this.id = id;
     }
 
-    public String getClientName() {
-        return clientName;
+    public String getName() {
+        return name;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getClientSurname() {
-        return clientSurname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setClientSurname(String clientSurname) {
-        this.clientSurname = clientSurname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getEmail() {
@@ -38,6 +39,14 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhone() {
