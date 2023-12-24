@@ -3,7 +3,7 @@ package com.app.model;
 public class BookLanguage {
 
     private long id;
-    private String languageName;
+    private String name;
 
     public long getId() {
         return id;
@@ -13,11 +13,11 @@ public class BookLanguage {
         this.id = id;
     }
 
-    public String getLanguageName() {
-        return languageName;
+    public String getName() {
+        return name;
     }
 
-    public void setLanguageName(String languageName) {
-        this.languageName = languageName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

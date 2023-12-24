@@ -1,6 +1,8 @@
 package com.app.controllers;
 
 import com.app.model.Client;
+import com.app.services.ClientServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,16 +11,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RegistrationController {
-   @GetMapping("/registration")
-   public String getRegistrationForm (Model model) {
-       model.addAttribute("newClient", new Client());
-       return "registration";
-   }
+    @Autowired
+    private ClientServices clientServices;
 
-   @PostMapping("/registration")
+    @GetMapping("/registration")
+    public String getRegistrationForm(Model model) {
+        model.addAttribute("newClient", new Client());
+        return "registration";
+    }
+
+    @PostMapping("/registration")
     public String saveNewClient(@ModelAttribute Client client, Model model) {
-       model.addAttribute("name", client.getName());
-       model.addAttribute("surname", client.getSurname());
-       return "successRegistration";
-   }
+        clientServices.storeNewClient(client);
+        model.addAttribute("name", client.getName());
+        model.addAttribute("surname", client.getSurname());
+        return "successRegistration";
+    }
 }

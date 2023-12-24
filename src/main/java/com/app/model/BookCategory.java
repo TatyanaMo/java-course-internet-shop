@@ -3,7 +3,7 @@ package com.app.model;
 public class BookCategory {
 
     private long id;
-    private Enum categoryName;
+    private String name;
 
     public long getId() {
         return id;
@@ -13,11 +13,11 @@ public class BookCategory {
         this.id = id;
     }
 
-    public Enum getCategoryName() {
-        return categoryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCategoryName(Enum categoryName) {
-        this.categoryName = categoryName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

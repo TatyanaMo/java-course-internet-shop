@@ -3,7 +3,7 @@ package com.app.model;
 public class BookType {
 
     private long id;
-    private Enum typeName;
+    private String name;
 
     public long getId() {
         return id;
@@ -13,11 +13,11 @@ public class BookType {
         this.id = id;
     }
 
-    public Enum getTypeName() {
-        return typeName;
+    public String getName() {
+        return name;
     }
 
-    public void setTypeName(Enum typeName) {
-        this.typeName = typeName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

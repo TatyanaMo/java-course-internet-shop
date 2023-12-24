@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Author Adding</title>
+</head>
+<body style="margin: 0; padding-top: 20px; display: flex; justify-content: center; align-items: center;">
+<form th:action="@{/author}" method="POST" th:object="${newAuthor}">
+  <div style="padding-bottom: 8px"><input type="text" placeholder="Name" th:field="*{name}"></div>
+  <div style="padding-bottom: 8px"><input type="text" placeholder="Surname" th:field="*{surname}"></div>
+  <div style="display: flex; justify-content: center">
+    <input style="border-radius: 5px; color: white; background-color: #452c63; padding: 5px 10px" type="submit" value="Add">
+  </div>
+</form>
+</body>
+</html>

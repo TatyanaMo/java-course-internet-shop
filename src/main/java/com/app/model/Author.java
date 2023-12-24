@@ -3,8 +3,8 @@ package com.app.model;
 public class Author {
 
     private long id;
-    private String authorName;
-    private String authorSurname;
+    private String name;
+    private String surname;
 
     public long getId() {
         return id;
@@ -14,19 +14,19 @@ public class Author {
         this.id = id;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public String getName() {
+        return name;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getAuthorSurname() {
-        return authorSurname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setAuthorSurname(String authorSurname) {
-        this.authorSurname = authorSurname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

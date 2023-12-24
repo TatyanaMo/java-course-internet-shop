@@ -3,7 +3,7 @@ package com.app.model;
 public class OrderStatus {
 
     private long id;
-    private Enum statusName;
+    private String name;
 
     public long getId() {
         return id;
@@ -13,11 +13,11 @@ public class OrderStatus {
         this.id = id;
     }
 
-    public Enum getStatusName() {
-        return statusName;
+    public String getName() {
+        return name;
     }
 
-    public void setStatusName(Enum statusName) {
-        this.statusName = statusName;
+    public void setName(String name) {
+        this.name = name;
     }
 }
