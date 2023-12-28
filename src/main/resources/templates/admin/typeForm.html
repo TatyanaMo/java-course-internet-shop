@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>New Order Status Adding</title>
+  <title>New Book Type Adding</title>
 </head>
 <body style="margin: 0; padding-top: 20px; display: flex; justify-content: center; align-items: center;">
-<form th:action="@{/status}" method="POST" th:object="${newOrderStatus}">
-  <div style="padding-bottom: 8px"><input type="text" placeholder="Status name" th:field="*{name}"></div>
+<form th:action="@{/_admin/type}" method="POST" th:object="${newBookType}">
+  <div style="padding-bottom: 8px"><input type="text" placeholder="Type name" th:field="*{name}"></div>
   <div style="display: flex; justify-content: center">
     <input style="border-radius: 5px; color: white; background-color: #452c63; padding: 5px 10px" type="submit" value="Add">
   </div>
