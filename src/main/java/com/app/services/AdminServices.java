@@ -5,6 +5,8 @@ import com.app.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AdminServices {
 
@@ -54,5 +56,36 @@ public class AdminServices {
     public void storeNewOrderStatus(OrderStatus orderStatus) {
         //Field data validation here
         orderStatusDAO.storeNewOrderStatus(orderStatus);
+    }
+
+
+    public List<Client> getAllClients() {
+        //Field data validation here
+        return clientDAO.getAllClients();
+    }
+
+    public List<Author> getAllAuthors() {
+        //Field data validation here
+        return authorDAO.getAllAuthors();
+    }
+
+    public List<BookCategory> getAllCategories() {
+        //Field data validation here
+        return bookCategoryDAO.getAllBookCategories();
+    }
+
+    public List<BookLanguage> getAllLanguages() {
+        //Field data validation here
+        return bookLanguageDAO.getAllBookLanguages();
+    }
+
+    public List<BookType> getAllTypes() {
+        //Field data validation here
+        return bookTypeDAO.getAllBookTypes();
+    }
+
+    public List<OrderStatus> getAllStatuses() {
+        //Field data validation here
+        return orderStatusDAO.getAllOrderStatus();
     }
 }

@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Book Types</title>
+</head>
+<body>
+<div th:each="type : ${types}">
+  <div th:text="${'ID: ' + type.id + ' Type: ' + type.name}"></div>
+</div>
+</body>
+</html>

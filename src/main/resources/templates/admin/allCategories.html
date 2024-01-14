@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Book Categories</title>
+</head>
+<body>
+<div th:each="category : ${categories}">
+  <div th:text="${'ID: ' + category.id + ' Category: ' + category.name}"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Clients</title>
+</head>
+<body>
+  <div th:each="client : ${clients}">
+    <div th:text="${'ID: ' + client.id + ' Name: ' + client.name + client.surname}"></div>
+  </div>
+</body>
+</html>

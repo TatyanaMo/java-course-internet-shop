@@ -92,4 +92,40 @@ public class AdminController {
         model.addAttribute("name", orderStatus.getName());
         return "admin/statusSuccessfullyAdded";
     }
+
+    @GetMapping("/_admin/allClients")
+    public String getAllClients(Model model) {
+        model.addAttribute("clients", adminServices.getAllClients());
+        return "admin/allClients";
+    }
+
+    @GetMapping("/_admin/allAuthors")
+    public String getAllAuthors(Model model) {
+        model.addAttribute("authors", adminServices.getAllAuthors());
+        return "admin/allAuthors";
+    }
+
+    @GetMapping("/_admin/allCategories")
+    public String getAllBookCategories(Model model) {
+        model.addAttribute("categories", adminServices.getAllCategories());
+        return "admin/allCategories";
+    }
+
+    @GetMapping("/_admin/allLanguages")
+    public String getAllBookLanguages(Model model) {
+        model.addAttribute("languages", adminServices.getAllLanguages());
+        return "admin/allLanguages";
+    }
+
+    @GetMapping("/_admin/allTypes")
+    public String getAllBookTypes(Model model) {
+        model.addAttribute("types", adminServices.getAllTypes());
+        return "admin/allTypes";
+    }
+
+    @GetMapping("/_admin/allStatuses")
+    public String getAllOrderStatuses(Model model) {
+        model.addAttribute("statuses", adminServices.getAllStatuses());
+        return "admin/allStatuses";
+    }
 }

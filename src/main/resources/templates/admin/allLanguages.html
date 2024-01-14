@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Book Languages</title>
+</head>
+<body>
+<div th:each="language : ${languages}">
+  <div th:text="${'ID: ' + language.id + ' Language: ' + language.name}"></div>
+</div>
+</body>
+</html>
