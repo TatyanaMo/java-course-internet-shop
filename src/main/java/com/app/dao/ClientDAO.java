@@ -26,6 +26,11 @@ public class ClientDAO {
        return jdbcTemplate.query("SELECT * FROM clients", rowMapper);
    }
 
+   public List<Client> getClientByEmail(String email) {
+       RowMapper<Client> rowMapper = (rs, rowNumber) -> mapClient(rs);
+       return jdbcTemplate.query("SELECT * FROM clients WHERE email = ?", rowMapper, email);
+   }
+
    private Client mapClient(ResultSet rs) throws SQLException {
        Client client = new Client();
 
@@ -35,6 +40,7 @@ public class ClientDAO {
        client.setEmail(rs.getString("email"));
        client.setPhone(rs.getString("phone"));
        client.setShippingAddress(rs.getString("shipping_address"));
+       client.setPassword(rs.getString("password"));
        return client;
    }
 }

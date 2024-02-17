@@ -15,20 +15,6 @@ public class AdminController {
     @Autowired
     private AdminServices adminServices;
 
-    @GetMapping("/_admin/registration")
-    public String getRegistrationForm(Model model) {
-        model.addAttribute("newClient", new Client());
-        return "admin/registration";
-    }
-
-    @PostMapping("/_admin/registration")
-    public String saveNewClient(@ModelAttribute Client client, Model model) {
-        adminServices.storeNewClient(client);
-        model.addAttribute("name", client.getName());
-        model.addAttribute("surname", client.getSurname());
-        return "admin/successRegistration";
-    }
-
     @GetMapping("/_admin/author")
     public String getAuthorsForm (Model model) {
         model.addAttribute("newAuthor", new Author());

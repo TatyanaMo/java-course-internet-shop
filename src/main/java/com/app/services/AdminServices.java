@@ -3,6 +3,7 @@ package com.app.services;
 import com.app.dao.*;
 import com.app.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,10 @@ public class AdminServices {
     private ClientDAO clientDAO;
 
     public void storeNewClient(Client client) {
-        //Fields data validation here
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodedPassword = encoder.encode(client.getPassword());
+        client.setPassword(encodedPassword);
+
         clientDAO.storeNewClient(client);
     }
 
