@@ -6,7 +6,8 @@
 </head>
 <body>
 <div th:each="author : ${authors}">
-  <div th:text="${'ID: ' + author.id + ' Author: ' + author.name + author.surname}"></div>
+  <div th:text="${'ID: ' + author.id + ' Author: ' + author.name + ' ' + author.surname}"></div>
 </div>
+<div><a href="/_admin/author">Add new Author</a></div>
 </body>
 </html>
