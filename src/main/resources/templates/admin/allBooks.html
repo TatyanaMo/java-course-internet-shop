@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All books</title>
+</head>
+<body>
+<div th:each="book : ${books}">
+  <div th:text="${'ID: ' + book.id + ' ' + book.bookName}"></div>
+</div>
+<div><a href="/_admin/newBook">Add new book</a></div>
+</body>
+</html>

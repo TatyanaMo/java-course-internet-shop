@@ -2,7 +2,10 @@ package com.app.services;
 
 import com.app.dao.*;
 import com.app.model.*;
+import com.app.security.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +65,34 @@ public class AdminServices {
         orderStatusDAO.storeNewOrderStatus(orderStatus);
     }
 
+    @Autowired
+    private BooksDAO booksDAO;
+
+    public void storeNewBook(Book book) {
+        booksDAO.storeNewBook(book);
+    }
+
+    @Autowired
+    private BookReviewDAO bookReviewDAO;
+
+    public void storeNewReview(BookReview bookReview) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+
+        bookReview.setClientId(customUserDetails.getClient().getId());
+        bookReviewDAO.storeNewReview(bookReview);
+    }
+
+    @Autowired
+    private OrderDAO orderDAO;
+
+    public void storeNewOrder(Order order) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+
+        order.setClientId(customUserDetails.getClient().getId());
+        orderDAO.storeNewOrder(order);
+    }
 
     public List<Client> getAllClients() {
         //Field data validation here
@@ -92,4 +123,10 @@ public class AdminServices {
         //Field data validation here
         return orderStatusDAO.getAllOrderStatus();
     }
+
+    public List<Book> getAllBooks() {
+        //Field data validation here
+        return booksDAO.getAllBooks();
+    }
+
 }

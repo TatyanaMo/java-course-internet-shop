@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create new Order</title>
+</head>
+<body>
+  <form th:action="@{/_admin/newOrder}" method="POST" th:object="${newOrder}">
+    <div>
+      <select th:field="*{orderStatusId}">
+        <option th:each="orderStatus : ${orderStatuses}" th:value="${orderStatus.id}" th:text="${orderStatus.name}"></option>
+      </select>
+      <div><input type="submit" value="Add order!"></div>
+    </div>
+  </form>
+</body>
+</html>

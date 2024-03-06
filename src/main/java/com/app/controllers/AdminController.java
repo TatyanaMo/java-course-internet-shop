@@ -114,4 +114,53 @@ public class AdminController {
         model.addAttribute("statuses", adminServices.getAllStatuses());
         return "admin/allStatuses";
     }
+
+
+    @GetMapping("/_admin/newBook")
+    public String getNewBook(Model model) {
+        model.addAttribute("newBook", new Book());
+        model.addAttribute("categories", adminServices.getAllCategories());
+        model.addAttribute("types", adminServices.getAllTypes());
+        model.addAttribute("languages", adminServices.getAllLanguages());
+        model.addAttribute("authors", adminServices.getAllAuthors());
+        return "admin/newBook";
+    }
+    @GetMapping("/_admin/allBooks")
+    public String getAllBooks(Model model) {
+        model.addAttribute("books", adminServices.getAllBooks());
+        return "admin/allBooks";
+    }
+
+    @PostMapping("/_admin/newBook")
+    public String storeNewBook(@ModelAttribute Book book) {
+        adminServices.storeNewBook(book);
+        return "admin/bookSuccessfullyAdded";
+    }
+
+    @GetMapping("/_admin/newReview")
+    public String getNewReview(Model model) {
+        model.addAttribute("newReview", new BookReview());
+        model.addAttribute("books", adminServices.getAllBooks());
+        return "admin/newReview";
+    }
+
+    @PostMapping("/_admin/newReview")
+    public String storeNewReview(@ModelAttribute BookReview bookReview) {
+        adminServices.storeNewReview(bookReview);
+        return "admin/reviewSuccessfullyAdded";
+    }
+
+    @GetMapping("/_admin/newOrder")
+    public String getNewOrder(Model model) {
+        model.addAttribute("newOrder", new Order());
+        model.addAttribute("orderStatuses", adminServices.getAllStatuses());
+        return "admin/newOrder";
+    }
+
+    @PostMapping("/_admin/newOrder")
+
+    public String storeNewOrder(@ModelAttribute Order order) {
+        adminServices.storeNewOrder(order);
+        return "admin/orderSuccessfullyAdded";
+    }
 }

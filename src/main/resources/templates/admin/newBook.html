@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New book</title>
+</head>
+<body>
+  <form th:action="@{/_admin/newBook}" method="POST" th:object="${newBook}">
+    <div>
+      <select th:field="*{categoryId}">
+        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+      </select>
+      <select th:field="*{typeId}">
+        <option th:each="type : ${types}" th:value="${type.id}" th:text="${type.name}"></option>
+      </select>
+      <select th:field="*{languageId}">
+        <option th:each="language : ${languages}" th:value="${language.id}" th:text="${language.name}"></option>
+      </select>
+      <select th:field="*{authorId}">
+        <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+      </select>
+      <select th:field="*{authorId}">
+        <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.surname}"></option>
+      </select>
+    </div>
+    <div><input type="text" placeholder="Book name" th:field="*{bookName}"></div>
+    <div><input type="text" placeholder="Book price" th:field="*{price}"></div>
+    <div><input type="text" placeholder="Book year" th:field="*{year}"></div>
+    <div><input type="submit" value="Add book!"></div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New Book Review</title>
+</head>
+<body>
+  <form th:action="@{/_admin/newReview}" method="POST" th:object="${newReview}">
+      <div>
+        <select th:field="*{bookId}">
+          <option th:each="book : ${books}" th:value="${book.id}" th:text = "${book.bookName}"></option>
+        </select>
+        <div><input type="text" placeholder="Leave your review for book" th:field="*{reviewContent}"></div>
+        <div><input type="submit" value="Add review!"></div>
+      </div>
+  </form>
+</body>
+</html>
