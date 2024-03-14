@@ -41,6 +41,7 @@ public class ClientDAO {
        client.setPhone(rs.getString("phone"));
        client.setShippingAddress(rs.getString("shipping_address"));
        client.setPassword(rs.getString("password"));
+       client.setRole(rs.getString("role"));
        return client;
    }
 }

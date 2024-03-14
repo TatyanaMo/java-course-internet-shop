@@ -14,22 +14,28 @@ public class RegistrationController {
     @Autowired
     private AdminServices adminServices;
 
-    @GetMapping("/registration")
+    @GetMapping("/clientRegistration")
     public String getRegistrationForm(Model model) {
         model.addAttribute("newClient", new Client());
-        return "admin/registration";
+        return "clientRegistration";
     }
 
-    @PostMapping("/registration")
+    @PostMapping("/clientRegistration")
     public String saveNewClient(@ModelAttribute Client client, Model model) {
         adminServices.storeNewClient(client);
         model.addAttribute("name", client.getName());
         model.addAttribute("surname", client.getSurname());
-        return "admin/successRegistration";
+        model.addAttribute("role", client.getRole());
+        return "successClientRegistration";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/clientLogin")
     public String getLoginPage() {
-        return "admin/login";
+        return "clientLogin";
+    }
+
+    @GetMapping("/userLogin")
+    public String getUserLoginPage() {
+        return "userLogin";
     }
 }

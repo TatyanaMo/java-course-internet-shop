@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Create New book</title>
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="form">
   <form th:action="@{/_admin/newBook}" method="POST" th:object="${newBook}">
     <div>
       <select th:field="*{categoryId}">
@@ -26,7 +27,9 @@
     <div><input type="text" placeholder="Book name" th:field="*{bookName}"></div>
     <div><input type="text" placeholder="Book price" th:field="*{price}"></div>
     <div><input type="text" placeholder="Book year" th:field="*{year}"></div>
-    <div><input type="submit" value="Add book!"></div>
+    <div class="button">
+      <input class="buttonText" type="submit" value="Add book!">
+    </div>
   </form>
 </body>
 </html>

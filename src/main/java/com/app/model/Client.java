@@ -8,6 +8,7 @@ public class Client {
     private String password;
     private String phone;
     private String shippingAddress;
+    private String role;
 
     public long getId() {
         return id;
@@ -63,5 +64,13 @@ public class Client {
 
     public void setShippingAddress(String shippingAddress) {
         this.shippingAddress = shippingAddress;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

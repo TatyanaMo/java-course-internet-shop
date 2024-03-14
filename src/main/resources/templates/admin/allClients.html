@@ -6,7 +6,7 @@
 </head>
 <body>
   <div th:each="client : ${clients}">
-    <div th:text="${'ID: ' + client.id + ' Name: ' + client.name + client.surname}"></div>
+    <div th:text="${'ID: ' + client.id + ' Name: ' + client.name + client.surname + client.role}"></div>
   </div>
 </body>
 </html>

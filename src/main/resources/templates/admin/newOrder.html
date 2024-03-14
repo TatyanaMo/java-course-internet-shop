@@ -7,7 +7,7 @@
 <body>
   <form th:action="@{/_admin/newOrder}" method="POST" th:object="${newOrder}">
     <div>
-      <select th:field="*{orderStatusId}">
+      <select th:field="*{orderStatus.id}">
         <option th:each="orderStatus : ${orderStatuses}" th:value="${orderStatus.id}" th:text="${orderStatus.name}"></option>
       </select>
       <div><input type="submit" value="Add order!"></div>

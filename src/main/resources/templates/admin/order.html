@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Order</title>
+</head>
+<body>
+  <div style="display: flex" th:each="order : ${orders}">
+    <div th:text="${order.id}"></div>
+    <div th:text="${order.totalPrice}"></div>
+    <div th:text="${order.orderStatus.name}"></div>
+    <div th:text="${order.client.name + ' ' + order.client.surname}"></div>
+  </div>
+</body>
+</html>

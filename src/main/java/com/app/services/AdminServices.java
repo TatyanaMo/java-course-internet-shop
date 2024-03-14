@@ -90,9 +90,23 @@ public class AdminServices {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
 
-        order.setClientId(customUserDetails.getClient().getId());
+        Client client = new Client();
+        client.setId(customUserDetails.getClient().getId());
+        order.setClient(client);
         orderDAO.storeNewOrder(order);
     }
+
+    public List<Order> getOrdersByClient(long clientId) {
+        return orderDAO.getOrdersByClient(clientId);
+
+    }
+    @Autowired
+    private  OrderDetailsDAO orderDetailsDAO;
+
+    public void storeNewOrderDetails(OrderDetails orderDetails) {
+        orderDetailsDAO.storeNewOrderDetails(orderDetails);
+    }
+
 
     public List<Client> getAllClients() {
         //Field data validation here
@@ -129,4 +143,9 @@ public class AdminServices {
         return booksDAO.getAllBooks();
     }
 
+    public List<Order> getAllOrders() {
+        //Field data validation here
+        return orderDAO.getAllOrders();
+
+    }
 }

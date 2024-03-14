@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New order details</title>
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+</head>
+<body class="form">
+  <form th:action="@{/_admin/newOrderDetails}" method="POST" th:object="${newOrderDetails}">
+    <div>
+      <select th:field="*{bookId}">
+        <option th:each="book : ${books}" th:value="${book.id}" th:text="${book.bookName}"></option>
+      </select>
+      <select th:field="*{orderId}">
+        <option th:each="order : ${orders}" th:value="${order.id}" th:text="${order.id}"></option>
+      </select>
+    </div>
+    <div class="input"><input type="number" placeholder="Ordered book quantity" th:field="*{quantity}"></div>
+    <div class="button"><input class="buttonText" type="submit" value="Add order details!"></div>
+  </form>
+
+</body>
+</html>

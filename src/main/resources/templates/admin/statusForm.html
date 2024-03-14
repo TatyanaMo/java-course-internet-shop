@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>New Order Status Adding</title>
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
-<body style="margin: 0; padding-top: 20px; display: flex; justify-content: center; align-items: center;">
+<body class="form">
 <form th:action="@{/_admin/status}" method="POST" th:object="${newOrderStatus}">
-  <div style="padding-bottom: 8px"><input type="text" placeholder="Status name" th:field="*{name}"></div>
-  <div style="display: flex; justify-content: center">
-    <input style="border-radius: 5px; color: white; background-color: #452c63; padding: 5px 10px" type="submit" value="Add">
+  <div class="input"><input type="text" placeholder="Status name" th:field="*{name}"></div>
+  <div class="button">
+    <input class="buttonText" type="submit" value="Add">
   </div>
 </form>
 </body>
