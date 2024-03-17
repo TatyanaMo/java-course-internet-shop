@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Create New book</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body class="form">
@@ -24,12 +25,12 @@
         <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.surname}"></option>
       </select>
     </div>
-    <div><input type="text" placeholder="Book name" th:field="*{bookName}"></div>
-    <div><input type="text" placeholder="Book price" th:field="*{price}"></div>
-    <div><input type="text" placeholder="Book year" th:field="*{year}"></div>
-    <div class="button">
-      <input class="buttonText" type="submit" value="Add book!">
+    <div class="list">
+      <div><input type="text" placeholder="Book name" th:field="*{bookName}" class="input"></div>
+      <div><input type="text" placeholder="Book price" th:field="*{price}" class="input"></div>
+      <div><input type="text" placeholder="Book year" th:field="*{year}" class="input"></div>
     </div>
+      <div class="button"><input type="submit" value="Add book!" class="button-ext" ></div>
   </form>
 </body>
 </html>

@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Successful new book adding</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
-<body style="margin: 0; padding-top: 20px; display: flex; justify-content: center; align-items: center;">
-<div style="border: 1px solid rgba(0, 0, 0, 0); padding: 20px; border-radius: 10px; background-color: #D8BFD8">
+<body class="form">
+<div class="message">
   <div th:text="'New book  ' + ${name}"></div>
   <div><strong>successfully</strong> added!</div>
-  <div><a href="/_admin/newBook">Add new book</a></div>
+  <div><a href="/_admin/newBook" class="link">Add new book</a></div>
 </div>
 </body>
 </html>

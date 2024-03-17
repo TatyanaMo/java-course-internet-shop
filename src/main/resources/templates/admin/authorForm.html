@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>New Author Adding</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body class="form">
-<form th:action="@{/_admin/author}" method="POST" th:object="${newAuthor}">
-  <div class="input"><input type="text" placeholder="Name" th:field="*{name}"></div>
-  <div class="input"><input type="text" placeholder="Surname" th:field="*{surname}"></div>
-  <div class="button">
-    <input class="buttonText" type="submit" value="Add">
-  </div>
-</form>
+  <form th:action="@{/_admin/author}" method="POST" th:object="${newAuthor}">
+    <div>
+      <input type="text" placeholder="Name" th:field="*{name}" class="input">
+      <input type="text" placeholder="Surname" th:field="*{surname}" class="input">
+    </div>
+      <div class="button">
+        <input type="submit" value="Add" class="button-text">
+      </div>
+  </form>
 </body>
 </html>

@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>All books</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div th:each="book : ${books}">
-  <div th:text="${'ID: ' + book.id + ' book name: ' + book.bookName}"></div>
-</div>
-<div><a href="/_admin/newOrder">Create new order</a></div>
+    <div class="books-header">
+      <div class="id header">ID</div>
+      <div class="book-name header">Book name</div>
+    </div>
+    <div th:each="book : ${books}" class="list">
+      <div th:text="${book.id}" class="id"></div>
+      <div th:text="${book.bookName}" class="book-name"></div>
+    </div>
+    <div>
+      <div><a href="/_admin/newOrder" class="link">Create new order</a></div>
+      <div><a href="/clientRegistration" class="link">Register</a></div>
+    </div>
 </body>
 </html>

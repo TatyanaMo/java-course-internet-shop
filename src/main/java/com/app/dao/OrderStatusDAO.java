@@ -21,7 +21,7 @@ public class OrderStatusDAO {
 
     public List<OrderStatus> getAllOrderStatus() {
         RowMapper<OrderStatus> rowMapper = (rs, rowNumber) -> mapStatus(rs);
-        return jdbcTemplate.query("SELECT * FROM order_statuses", rowMapper);
+        return jdbcTemplate.query("SELECT * FROM order_statuses ORDER BY order_statuses.id ASC", rowMapper);
     }
 
     private OrderStatus mapStatus(ResultSet rs) throws SQLException {

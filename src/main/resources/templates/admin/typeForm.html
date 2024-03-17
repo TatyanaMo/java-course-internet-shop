@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>New Book Type Adding</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body class="form">
-<form th:action="@{/_admin/type}" method="POST" th:object="${newBookType}">
-  <div class="input"><input type="text" placeholder="Type name" th:field="*{name}"></div>
-  <div class="button">
-    <input class="buttonText" type="submit" value="Add">
-  </div>
-</form>
+  <form th:action="@{/_admin/type}" method="POST" th:object="${newBookType}">
+    <div>
+      <input type="text" placeholder="Type name" th:field="*{name}" class="input">
+    </div>
+    <div class="button">
+      <input type="submit" value="Add" class="button-text">
+    </div>
+  </form>
 </body>
 </html>

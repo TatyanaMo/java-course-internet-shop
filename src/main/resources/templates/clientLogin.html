@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Log In for Client</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body class="form">
 <form th:action="@{/clientLogin}" method="POST">
-  <div class="input"><input type="text" name="username" placeholder="Client Email"></div>
-  <div class="input"><input type="password" name="password" placeholder="Client Password"></div>
+  <div class="input"><input type="text" name="username" placeholder="Email"></div>
+  <div class="input"><input type="password" name="password" placeholder="Password"></div>
   <div class="button">
-    <input class="buttonText" type="submit" value="Log-in!">
+    <input type="submit" value="Log-in!" class="button-text">
   </div>
 </form>
 </body>

@@ -22,7 +22,7 @@ public class BookTypeDAO {
 
     public List<BookType> getAllBookTypes() {
         RowMapper<BookType> rowMapper = (rs, rowNumber) -> mapType(rs);
-        return jdbcTemplate.query("SELECT * FROM book_types", rowMapper);
+        return jdbcTemplate.query("SELECT * FROM book_types ORDER BY book_types.id ASC", rowMapper);
     }
 
     private BookType mapType(ResultSet rs) throws SQLException {

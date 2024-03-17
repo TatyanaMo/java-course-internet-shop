@@ -3,10 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>All Book Types</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div th:each="type : ${types}">
-  <div th:text="${'ID: ' + type.id + ' Type: ' + type.name}"></div>
-</div>
+  <div class="types-header">
+    <div class="id header">ID</div>
+    <div class="type-name header">Book type</div>
+  </div>
+  <div th:each="type : ${types}" class="list">
+    <div th:text="${type.id}" class="id"></div>
+    <div th:text="${type.name}" class="type-name"></div>
+  </div>
 </body>
 </html>

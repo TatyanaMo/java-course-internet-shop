@@ -24,7 +24,7 @@ public class BooksDAO {
 
     public List<Book> getAllBooks() {
         RowMapper<Book> rowMapper = (rs, rowNumber) -> mapBook(rs);
-        return jdbcTemplate.query("SELECT * FROM books", rowMapper);
+        return jdbcTemplate.query("SELECT * FROM books ORDER BY books.id ASC", rowMapper);
     }
 
     private Book mapBook(ResultSet rs) throws SQLException {

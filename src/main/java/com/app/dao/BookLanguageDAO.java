@@ -23,7 +23,7 @@ public class BookLanguageDAO {
 
     public List<BookLanguage> getAllBookLanguages() {
         RowMapper<BookLanguage> rowMapper = (rs, rowNumber) -> mapLanguage(rs);
-        return jdbcTemplate.query("SELECT * FROM book_languages", rowMapper);
+        return jdbcTemplate.query("SELECT * FROM book_languages ORDER BY book_languages.id ASC", rowMapper);
     }
 
     private BookLanguage mapLanguage(ResultSet rs) throws SQLException {

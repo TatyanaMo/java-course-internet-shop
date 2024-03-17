@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>All Clients</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <div th:each="client : ${clients}">
-    <div th:text="${'ID: ' + client.id + ' Name: ' + client.name + client.surname + client.role}"></div>
+  <div class="clients-header">
+    <div class="id header">ID</div>
+    <div class="client-name header">Client name</div>
+    <div class="client-name header">Client surname</div>
+    <div class="client-role header">Client role</div>
   </div>
+    <div th:each="client : ${clients}" class="list">
+      <div th:text="${client.id}" class="id"></div>
+      <div th:text="${client.name}" class="client-name"></div>
+      <div th:text="${client.surname}" class="client-name"></div>
+      <div th:text="${client.role}" class="client-role"></div>
+    </div>
+    <div><a href="/clientRegistration" class="link">Register new client</a></div>
 </body>
 </html>

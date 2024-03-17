@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Order</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <div style="display: flex" th:each="order : ${orders}">
-    <div th:text="${order.id}"></div>
-    <div th:text="${order.totalPrice}"></div>
-    <div th:text="${order.orderStatus.name}"></div>
-    <div th:text="${order.client.name + ' ' + order.client.surname}"></div>
+  <div class="orders-by-client-header">
+    <div class="id header">Order ID</div>
+    <div class="order-total-price header">Order total price</div>
+    <div class="status-name header">Order status</div>
+    <div class="client-name header">Client name</div>
+    <div class="client-name header">Client surname</div>
   </div>
+    <div th:each="order : ${orders}" class="list">
+      <div th:text="${order.id}" class="id"></div>
+      <div th:text="${order.totalPrice}" class="order-total-price"></div>
+      <div th:text="${order.orderStatus.name}" class="status-name"></div>
+      <div th:text="${order.client.name}" class="client-name"></div>
+      <div th:text="${order.client.surname}" class="client-name"></div>
+    </div>
 </body>
 </html>

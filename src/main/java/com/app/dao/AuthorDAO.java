@@ -21,7 +21,7 @@ public class AuthorDAO {
 
     public List<Author> getAllAuthors() {
         RowMapper<Author> rowMapper = (rs, rowNumber) -> mapAuthor(rs);
-        return jdbcTemplate.query("SELECT * FROM authors", rowMapper);
+        return jdbcTemplate.query("SELECT * FROM authors ORDER BY authors.id ASC", rowMapper);
     }
 
     private Author mapAuthor(ResultSet rs) throws SQLException {

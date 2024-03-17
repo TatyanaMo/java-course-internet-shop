@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>All Book Languages</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div th:each="language : ${languages}">
-  <div th:text="${'ID: ' + language.id + ' Language: ' + language.name}"></div>
+<div class="languages-header">
+  <div class="id header">ID</div>
+  <div class="language-name header">Book language</div>
 </div>
-<div><a href="/_admin/language">Add new book language</a></div>
+  <div th:each="language : ${languages}" class="list">
+    <div th:text="${language.id}" class="id"></div>
+    <div th:text="${language.name}" class="language-name"></div>
+  </div>
+  <div><a href="/_admin/language" class="link">Add new book language</a></div>
 </body>
 </html>

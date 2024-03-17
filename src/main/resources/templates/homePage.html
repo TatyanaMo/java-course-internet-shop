@@ -2,11 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Internet book shop</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <div>Books shop</div>
-  <div><a href="/allBooks">See all books</a></div>
+  <div class="homepage">
+      <div class="header">Books shop </div>
+        <div>
+            <div><a href="/allBooks" class="link">See all books</a></div>
+            <div><a href="/clientRegistration" class="link">Registration</a></div>
+            <div><a href="/clientLogin" class="link">Log in if you already registered</a></div>
+        </div>
+  </div>
 </body>
 </html>

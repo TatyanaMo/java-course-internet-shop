@@ -23,7 +23,7 @@ public class ClientDAO {
 
    public List<Client> getAllClients() {
        RowMapper<Client> rowMapper = (rs, rowNumber) -> mapClient(rs);
-       return jdbcTemplate.query("SELECT * FROM clients", rowMapper);
+       return jdbcTemplate.query("SELECT * FROM clients ORDER BY clients.id ASC", rowMapper);
    }
 
    public List<Client> getClientByEmail(String email) {

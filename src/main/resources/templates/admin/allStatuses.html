@@ -3,10 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>All Order Statuses</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div th:each="status : ${statuses}">
-  <div th:text="${'ID: ' + status.id + ' Status: ' + status.name}"></div>
+<div class="statuses-header">
+  <div class="id header">ID</div>
+  <div class="status-name header">Order status</div>
 </div>
+  <div th:each="status : ${statuses}" class="list">
+    <div th:text="${status.id}" class="id"></div>
+    <div th:text="${status.name}" class="status-name"></div>
+  </div>
 </body>
 </html>

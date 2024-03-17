@@ -20,7 +20,7 @@ public class BookCategoryDAO {
 
    public List<BookCategory> getAllBookCategories() {
        RowMapper<BookCategory> rowMapper = (rs, rowNumber) -> mapCategory(rs);
-       return jdbcTemplate.query("SELECT * FROM book_categories", rowMapper);
+       return jdbcTemplate.query("SELECT * FROM book_categories ORDER BY book_categories.id ASC", rowMapper);
    }
 
    private BookCategory mapCategory(ResultSet rs) throws SQLException {
