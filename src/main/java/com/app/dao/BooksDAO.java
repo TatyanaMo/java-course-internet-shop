@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -25,6 +26,20 @@ public class BooksDAO {
     public List<Book> getAllBooks() {
         RowMapper<Book> rowMapper = (rs, rowNumber) -> mapBook(rs);
         return jdbcTemplate.query("SELECT * FROM books ORDER BY books.id ASC", rowMapper);
+    }
+
+
+    public BigDecimal getBookPriceById(long bookId) {
+        String sql = "SELECT price FROM books WHERE id = ?";
+        String priceString = jdbcTemplate.queryForObject(sql, String.class, bookId);
+        if (priceString != null) {
+            priceString = priceString.replaceAll("[^\\d,.-]", "");
+            priceString = priceString.replace(",", ".");
+            System.out.println("Modified price string: " + priceString);
+            return new BigDecimal(priceString);
+        } else {
+            return BigDecimal.ZERO;
+        }
     }
 
     private Book mapBook(ResultSet rs) throws SQLException {

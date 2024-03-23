@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -72,6 +73,10 @@ public class AdminServices {
         booksDAO.storeNewBook(book);
     }
 
+    public BigDecimal getBookPriceById(long bookId) {
+        return booksDAO.getBookPriceById(bookId);
+    }
+
     @Autowired
     private BookReviewDAO bookReviewDAO;
 
@@ -87,6 +92,17 @@ public class AdminServices {
     private OrderDAO orderDAO;
 
     public void storeNewOrder(Order order) {
+        // Retrieve the book price based on the book ID in the order
+        long bookId = order.getBookId();
+        BigDecimal bookPrice = booksDAO.getBookPriceById(bookId);
+        // Calculate the total price based on the book price and quantity
+        int quantity = order.getQuantity();
+        BigDecimal totalPrice = bookPrice.multiply(BigDecimal.valueOf(quantity));
+        order.setTotalPrice(totalPrice);
+        // Set the order status to "New"
+        OrderStatus newStatus = orderStatusDAO.getOrderStatusByName("New");
+        order.setOrderStatus(newStatus);
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
 
@@ -100,13 +116,6 @@ public class AdminServices {
         return orderDAO.getOrdersByClient(clientId);
 
     }
-    @Autowired
-    private  OrderDetailsDAO orderDetailsDAO;
-
-    public void storeNewOrderDetails(OrderDetails orderDetails) {
-        orderDetailsDAO.storeNewOrderDetails(orderDetails);
-    }
-
 
     public List<Client> getAllClients() {
         //Field data validation here

@@ -1,5 +1,6 @@
 package com.app.dao;
 
+import com.app.model.Book;
 import com.app.model.Client;
 import com.app.model.Order;
 import com.app.model.OrderStatus;
@@ -19,8 +20,8 @@ public class OrderDAO {
     private JdbcTemplate jdbcTemplate;
 
     public void storeNewOrder(Order order) {
-        jdbcTemplate.update("INSERT INTO orders (client_id, order_status_id) VALUES (?, ?)",
-                order.getClient().getId(), order.getOrderStatus().getId());
+        jdbcTemplate.update("INSERT INTO orders (client_id, order_status_id, total_price, quantity, book_id) VALUES (?, ?, ?, ?, ?)",
+                order.getClient().getId(), order.getOrderStatus().getId(), order.getTotalPrice(), order.getQuantity(), order.getBookId());
     }
 
     public List<Order> getAllOrders() {
@@ -50,13 +51,14 @@ public class OrderDAO {
         orderStatus.setId(rs.getLong("sid"));
         orderStatus.setName(rs.getString("sname"));
 
-        Order order = new Order();
+//        Book book = new Book();
+//        book.setId(rs.getLong("bid"));
+//        book.setBookName(rs.getString("bname"));
 
+        Order order = new Order();
         order.setId(rs.getLong("oid"));
-//        order.setClientId(rs.getLong("client_id"));
         order.setClient(client);
         order.setTotalPrice(rs.getBigDecimal("total_price"));
-//        order.setOrderStatusId(rs.getLong("order_status_id"));
         order.setOrderStatus(orderStatus);
         return order;
     }

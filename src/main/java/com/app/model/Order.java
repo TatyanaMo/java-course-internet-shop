@@ -6,8 +6,11 @@ import java.util.List;
 public class Order {
 
     private long id;
-    private BigDecimal totalPrice;
     private Client client;
+    private long bookId;
+    private int quantity;
+    private BigDecimal totalPrice;
+
     private OrderStatus orderStatus;
 
     public long getId() {
@@ -42,4 +45,21 @@ public class Order {
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+    public long getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(long bookId) {
+        this.bookId = bookId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
+

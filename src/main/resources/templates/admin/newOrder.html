@@ -8,16 +8,17 @@
 </head>
 <body>
   <div class="new-order-header">
-    <div class="status-name header">Order status</div>
-    <div class="order-total-price header">Order total price</div>
+    <div class="book-name header">Book</div>
+    <div class="book-quantity header">Book quantity</div>
   </div>
   <form th:action="@{/_admin/newOrder}" method="POST" th:object="${newOrder}">
     <div>
       <div class="list">
-        <select th:field="*{orderStatus.id}">
-          <option th:each="orderStatus : ${orderStatuses}" th:value="${orderStatus.id}" th:text="${orderStatus.name}" class="status-name"></option>
+        <input type="hidden" name="orderStatus.id" value="1">
+        <select th:field="*{bookId}" class="ordered-book-name">
+          <option th:each="book : ${books}" th:value="${book.id}" th:text="${book.bookName}"></option>
         </select>
-          <div><input type="text" placeholder="order total price (came from book price and quantity)" th:field="*{totalPrice}" class="order-total-price"></div>
+        <div class="input"><input type="number" th:field="*{quantity}" class="books-quantity"></div>
       </div>
       <div class="button"><input type="submit" value="Add order!" class="button-text"></div>
     </div>

@@ -34,8 +34,4 @@ public class RegistrationController {
         return "clientLogin";
     }
 
-    @GetMapping("/userLogin")
-    public String getUserLoginPage() {
-        return "userLogin";
-    }
 }

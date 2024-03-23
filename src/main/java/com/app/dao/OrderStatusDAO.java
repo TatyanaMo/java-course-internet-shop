@@ -24,6 +24,16 @@ public class OrderStatusDAO {
         return jdbcTemplate.query("SELECT * FROM order_statuses ORDER BY order_statuses.id ASC", rowMapper);
     }
 
+    public OrderStatus getOrderStatusByName(String statusName) {
+        String sql = "SELECT id, name FROM order_statuses WHERE name = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{statusName}, (rs, rowNum) -> {
+            OrderStatus status = new OrderStatus();
+            status.setId(rs.getLong("id"));
+            status.setName(rs.getString("name"));
+            return status;
+        });
+    }
+
     private OrderStatus mapStatus(ResultSet rs) throws SQLException {
         OrderStatus orderStatus = new OrderStatus();
 

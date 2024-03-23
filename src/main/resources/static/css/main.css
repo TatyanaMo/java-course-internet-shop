@@ -64,6 +64,11 @@ input::placeholder {
     margin-left: 15px;
     margin-top: 15px;
 }
+.elements-main-block {
+    display: block;
+    margin-left: 15px;
+    margin-top: 15px;
+}
 
 .list {
     display: flex;
@@ -80,7 +85,9 @@ input::placeholder {
 
 .header {
     font-weight: 600;
-    color: #3e0f93;
+    color: #07178b;
+    margin-bottom: 15px;
+    font-size: larger;
 }
 
 .books-header {

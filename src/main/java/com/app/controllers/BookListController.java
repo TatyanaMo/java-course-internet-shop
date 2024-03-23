@@ -17,4 +17,6 @@ public class BookListController {
         model.addAttribute("books", adminServices.getAllBooks());
         return "allBooks";
     }
+
+
 }
