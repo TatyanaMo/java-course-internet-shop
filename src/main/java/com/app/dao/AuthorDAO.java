@@ -32,4 +32,9 @@ public class AuthorDAO {
         author.setSurname(rs.getString("surname"));
         return author;
     }
+
+    public List<Author> getAllAuthorsStartingWith(String startsWith) {
+        RowMapper<Author> rowMapper = (rs, rowNumber) -> mapAuthor(rs);
+        return jdbcTemplate.query("SELECT * FROM authors WHERE name LIKE CONCAT(?,'%')", rowMapper, startsWith);
+    }
 }

@@ -152,6 +152,14 @@ public class AdminServices {
         return booksDAO.getAllBooks();
     }
 
+    public List<Book> getAllBooksStartingWith(String startsWith) {
+        return booksDAO.getAllBooksStartingWith(startsWith);
+    }
+
+    public List<Author> getAllAuthorsStartingWith(String startsWith) {
+        return authorDAO.getAllAuthorsStartingWith(startsWith);
+    }
+
     public List<Order> getAllOrders() {
         //Field data validation here
         return orderDAO.getAllOrders();

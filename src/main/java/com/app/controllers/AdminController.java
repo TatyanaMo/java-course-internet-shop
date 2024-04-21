@@ -33,6 +33,8 @@ public class AdminController {
         return "admin/authorSuccessfullyAdded";
     }
 
+
+
     @GetMapping("/_admin/category")
     public String getBookCategoryForm (Model model) {
         model.addAttribute("newBookCategory", new BookCategory());
@@ -94,6 +96,11 @@ public class AdminController {
         model.addAttribute("authors", adminServices.getAllAuthors());
         return "admin/allAuthors";
     }
+
+//    @GetMapping("/_admin/authors")
+//    public String showAuthors() {
+//        return "admin/allAuthors";
+//    }
 
     @GetMapping("/_admin/allCategories")
     public String getAllBookCategories(Model model) {

@@ -5,8 +5,16 @@
   <title>All Authors</title>
   <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
   <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="/js/main.js" defer></script>
 </head>
 <body>
+
+  <div onclick="getAuthors();">SHOW ALL BOOK AUTHORS</div>
+  <div id="author-list"></div>
+
+  <input type="text" id="author" placeholder="start typing author name...">
+
   <div class="authors-header">
     <div class="id header">ID</div>
     <div class="author-name header">Author name</div>

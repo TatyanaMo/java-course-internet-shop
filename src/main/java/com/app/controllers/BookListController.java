@@ -18,5 +18,11 @@ public class BookListController {
         return "allBooks";
     }
 
+    @GetMapping("/books")
+    public String showBooks() {
+        return "books";
+    }
+
+
 
 }

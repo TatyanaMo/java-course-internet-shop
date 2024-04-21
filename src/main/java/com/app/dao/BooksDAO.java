@@ -28,6 +28,11 @@ public class BooksDAO {
         return jdbcTemplate.query("SELECT * FROM books ORDER BY books.id ASC", rowMapper);
     }
 
+    public List<Book> getAllBooksStartingWith(String startsWith) {
+        RowMapper<Book> rowMapper = (rs, rowNumber) -> mapBook(rs);
+        return jdbcTemplate.query("SELECT * FROM books WHERE name LIKE CONCAT(?,'%')", rowMapper, startsWith);
+    }
+
 
     public BigDecimal getBookPriceById(long bookId) {
         String sql = "SELECT price FROM books WHERE id = ?";
