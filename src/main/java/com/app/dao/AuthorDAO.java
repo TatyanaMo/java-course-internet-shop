@@ -19,9 +19,18 @@ public class AuthorDAO {
         jdbcTemplate.update("INSERT INTO authors (name, surname) VALUES (?, ?)", author.getName(), author.getSurname());
     }
 
+    public void updateAuthor(Author author) {
+        jdbcTemplate.update("UPDATE authors SET name = ?, surname = ? WHERE id = ?", author.getName(), author.getSurname(), author.getId());
+    }
+
     public List<Author> getAllAuthors() {
         RowMapper<Author> rowMapper = (rs, rowNumber) -> mapAuthor(rs);
         return jdbcTemplate.query("SELECT * FROM authors ORDER BY authors.id ASC", rowMapper);
+    }
+
+    public Author getAuthorById(long id) {
+        RowMapper<Author> rowMapper = (rs, rowNumber) -> mapAuthor(rs);
+        return jdbcTemplate.query("SELECT * FROM authors WHERE id = ? ORDER BY authors.id ASC", rowMapper, id).get(0);
     }
 
     private Author mapAuthor(ResultSet rs) throws SQLException {

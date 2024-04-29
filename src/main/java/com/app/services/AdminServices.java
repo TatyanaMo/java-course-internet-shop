@@ -163,6 +163,14 @@ public class AdminServices {
     public List<Order> getAllOrders() {
         //Field data validation here
         return orderDAO.getAllOrders();
-
     }
+
+    public Author getAuthorById(long id) {
+        return authorDAO.getAuthorById(id);
+    }
+
+    public void updateAuthor(Author author) {
+        authorDAO.updateAuthor(author);
+    }
+
 }

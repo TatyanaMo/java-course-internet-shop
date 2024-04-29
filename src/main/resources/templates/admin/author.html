@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Author</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <div>Author name:</div>
+  <div th:text="${author.name}"></div>
+  <div>Author surname:</div>
+  <div th:text="${author.surname}"></div>
+  <a th:href="'/_admin/author/edit/' + ${author.id}">Edit</a>
+</body>
+</html>

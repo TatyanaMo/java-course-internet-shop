@@ -97,10 +97,24 @@ public class AdminController {
         return "admin/allAuthors";
     }
 
-//    @GetMapping("/_admin/authors")
-//    public String showAuthors() {
-//        return "admin/allAuthors";
-//    }
+    @GetMapping("/_admin/author/{id}")
+    public String showAuthors(@PathVariable("id") long id, Model model) {
+        model.addAttribute("author", adminServices.getAuthorById(id));
+        return "admin/author";
+    }
+
+    @GetMapping("/_admin/author/edit/{id}")
+    public String showEditAuthorForm(@PathVariable("id") long id, Model model) {
+        model.addAttribute("author", adminServices.getAuthorById(id));
+        return "admin/editAuthor";
+    }
+
+    @PostMapping("/_admin/author/edit/{id}")
+    public String editAuthor(@ModelAttribute Author author, @PathVariable("id") long id) {
+       author.setId(id);
+       adminServices.updateAuthor(author);
+       return "redirect:/_admin/allAuthors";
+    }
 
     @GetMapping("/_admin/allCategories")
     public String getAllBookCategories(Model model) {

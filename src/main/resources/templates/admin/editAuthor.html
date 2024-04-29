@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Author</title>
+  <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+</head>
+<body class="form">
+<form th:action="${'/_admin/author/edit/' + author.id}" method="POST" th:object="${author}">
+  <div>
+    <input type="text" placeholder="Name" th:field="*{name}" class="input">
+    <input type="text" placeholder="Surname" th:field="*{surname}" class="input">
+  </div>
+  <div class="button">
+    <input type="submit" value="Update author details" class="button-text">
+  </div>
+</form>
+</body>
+</html>
