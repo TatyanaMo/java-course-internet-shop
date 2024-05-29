@@ -9,6 +9,12 @@
 <body>
   <div class="homepage">
       <div class="header">Books shop</div>
+        <div class="client-header">
+          <div class="client-card">
+            <div class="avatar" th:text="${#strings.substring(clientname, 0, 1)}"></div>
+            <div class="client-name" th:text="'Welcome, ' + ${clientname} + '!'"></div>
+          </div>
+        </div>
         <div>
             <div><a href="/allBooks" class="link">See all books</a></div>
             <div><a href="/clientRegistration" class="link">Registration</a></div>

@@ -22,8 +22,13 @@ public class AdminServices {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(client.getPassword());
         client.setPassword(encodedPassword);
-
         clientDAO.storeNewClient(client);
+    }
+
+    public Client getCurrentClient() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomUserDetails customClient = (CustomUserDetails) authentication.getPrincipal();
+        return clientDAO.getClientById(customClient.getClient().getId());
     }
 
    @Autowired

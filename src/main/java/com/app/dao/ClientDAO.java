@@ -21,6 +21,10 @@ public class ClientDAO {
                client.getName(), client.getSurname(), client.getEmail(), client.getPhone(), client.getShippingAddress(), client.getPassword());
    }
 
+   public void storeUserAvatar(String fileName, long clientId) {
+       jdbcTemplate.update("UPDATE clients SET avatar_url = ? WHERE id = ?", fileName, clientId);
+   }
+
    public List<Client> getAllClients() {
        RowMapper<Client> rowMapper = (rs, rowNumber) -> mapClient(rs);
        return jdbcTemplate.query("SELECT * FROM clients ORDER BY clients.id ASC", rowMapper);
@@ -29,6 +33,11 @@ public class ClientDAO {
    public List<Client> getClientByEmail(String email) {
        RowMapper<Client> rowMapper = (rs, rowNumber) -> mapClient(rs);
        return jdbcTemplate.query("SELECT * FROM clients WHERE email = ?", rowMapper, email);
+   }
+
+   public Client getClientById(long id) {
+       RowMapper<Client> rowMapper = (rs, rowNumber) -> mapClient(rs);
+       return jdbcTemplate.query("SELECT * FROM clients WHERE id = ?", rowMapper, id).get(0);
    }
 
    private Client mapClient(ResultSet rs) throws SQLException {
@@ -44,4 +53,5 @@ public class ClientDAO {
        client.setRole(rs.getString("role"));
        return client;
    }
+
 }

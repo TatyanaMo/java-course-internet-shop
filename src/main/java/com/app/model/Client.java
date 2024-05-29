@@ -9,6 +9,7 @@ public class Client {
     private String phone;
     private String shippingAddress;
     private String role;
+    private String avatarPath;
 
     public long getId() {
         return id;
@@ -72,5 +73,13 @@ public class Client {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getAvatarPath() {
+        return avatarPath;
+    }
+
+    public void setAvatarPath(String avatarPath) {
+        this.avatarPath = avatarPath;
     }
 }

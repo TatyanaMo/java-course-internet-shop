@@ -217,6 +217,34 @@ input::placeholder {
     margin-right: 50px;
 }
 
+.client-header {
+}
+
+.client-card {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    color: #a40839;
+}
+
+.avatar {
+    background-color: #999;
+    color: white;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.client-name{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+
 
 
 

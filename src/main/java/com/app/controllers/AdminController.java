@@ -34,7 +34,6 @@ public class AdminController {
     }
 
 
-
     @GetMapping("/_admin/category")
     public String getBookCategoryForm (Model model) {
         model.addAttribute("newBookCategory", new BookCategory());
@@ -189,6 +188,12 @@ public class AdminController {
         model.addAttribute("orders",adminServices.getOrdersByClient(id));
         return "/admin/order";
     }
+
+    @GetMapping("/_admin/avatar-upload")
+    public String uploadAvatar() {
+        return "/admin/avatarUpload";
+    }
+
 
     @GetMapping("/_admin/{bookId}/price")
     public ResponseEntity<BigDecimal> getBookPrice(@PathVariable("bookId") long bookId) {
