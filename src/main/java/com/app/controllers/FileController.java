@@ -34,8 +34,9 @@ public class FileController {
         return "allFiles";
     }
 
-    @PostMapping("/_admin/avatar-upload")
-    public String storeClientAvatar(@RequestParam("avatar") MultipartFile avatar) {
+    @PostMapping("/avatar-upload")
+    public String storeClientAvatar(@RequestParam("avatar") MultipartFile avatar) throws IOException {
+        fileServices.storeClientAvatar(avatar);
         return "redirect:/";
     }
 }

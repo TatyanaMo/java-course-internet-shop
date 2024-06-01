@@ -14,6 +14,7 @@ public class MainController {
     @GetMapping("/")
     public String getHomePage(Model model) {
         model.addAttribute("clientname", adminServices.getCurrentClient().getName());
+        model.addAttribute("avatarUrl", adminServices.getCurrentClient().getAvatarPath());
         return "homePage";
     }
 }

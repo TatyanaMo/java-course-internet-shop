@@ -21,7 +21,7 @@ public class ClientDAO {
                client.getName(), client.getSurname(), client.getEmail(), client.getPhone(), client.getShippingAddress(), client.getPassword());
    }
 
-   public void storeUserAvatar(String fileName, long clientId) {
+   public void storeClientAvatar(String fileName, long clientId) {
        jdbcTemplate.update("UPDATE clients SET avatar_url = ? WHERE id = ?", fileName, clientId);
    }
 
@@ -51,6 +51,7 @@ public class ClientDAO {
        client.setShippingAddress(rs.getString("shipping_address"));
        client.setPassword(rs.getString("password"));
        client.setRole(rs.getString("role"));
+       client.setAvatarPath(rs.getString("avatar_url"));
        return client;
    }
 
